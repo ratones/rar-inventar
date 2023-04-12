@@ -1,0 +1,15 @@
+<dx-data-grid
+  id="configListaInventarGrid"
+  [dataSource]="listaInventar"
+  keyExpr="id"
+  (onEditingStart)="handleEditingStart($event)"
+>
+<dxo-editing mode="popup" [allowAdding]="true" [allowDeleting]="true" [allowUpdating]="true"></dxo-editing>
+<dxi-column dataField="name"></dxi-column>
+<dxi-column dataField="marjaMin" dataType="number">
+  <dxi-validation-rule type="async" [validationCallback]="validateRange"></dxi-validation-rule>
+</dxi-column>
+<dxi-column dataField="marjaMax" dataType="number">
+  <dxi-validation-rule type="async" [validationCallback]="validateRange"></dxi-validation-rule>
+</dxi-column>
+</dx-data-grid>
